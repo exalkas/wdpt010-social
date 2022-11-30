@@ -17,7 +17,9 @@
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
     "client": "SET PORT=3000 && npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
+    "heroku-prebuild": "npm install && cd client && npm install && cd ../ && cd server && npm install",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build --prefix client"
   },
   "name": "02-models",
   "version": "1.0.0",
